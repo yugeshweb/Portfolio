@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact | Yugesh K</title>
+    <meta name="description" content="Get in touch with Yugesh K for web development, UI/UX design, video editing and digital marketing projects.">
+    <meta name="author" content="Yugesh K">
+    <meta name="theme-color" content="#fcfcfa">
+    <link rel="canonical" href="https://yugeshweb.com/contact">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Yugesh K">
+    <meta property="og:title" content="Contact — Yugesh K">
+    <meta property="og:description" content="Get in touch with Yugesh K for web development, UI/UX design, video editing and digital marketing projects.">
+    <meta property="og:url" content="https://yugeshweb.com/contact">
+    <meta property="og:image" content="https://yugeshweb.com/Assets/yugesh.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@yugeshweb">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/SRC/style/style.css">
+    <link rel="icon" href="/Assets/favicons/favicon.png" type="image/png" sizes="32x32">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha384-SOnAn/m2fVJCwnbEYgD4xzrPtvsXdElhOVvR8ND1YjB5nhGNwwf7nBQlhfAwHAZC"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        integrity="sha384-42kyIPf7HDYLkGffmxDhSx/3Z/53wGBs3nD6wEFxsbeDc7rMO6mkYbkAcpRsnMU2"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-00RCDTLY60"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-00RCDTLY60');
+    </script>
+</head>
+
+<body>
+
+    <header class="header" id="header">
+        <a href="/" class="logo"><span class="main-icon"></span><span>Yugesh</span></a>
+
+        <div class="navbar">
+            <a href="/">About</a>
+            <a href="/skills">Skills</a>
+            <a href="/education">Education</a>
+            <a href="/gallery">Gallery</a>
+            <a href="/career">Career</a>
+            <a href="/hobbies">Hobbies</a>
+
+        </div>
+
+        <div class="main">
+            <a href="/contact" class="user main-items active"><i class="fas fa-envelope cm-icon"></i>Contact Me</a>
+            <div class="main-items menu-icon-container" id="menu-icon-js">
+                <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="page">
+        <main class="contact-main">
+            <div class="contact-shell">
+                <div class="sheet-head">
+                    <h1 class="sheet-title">Contact</h1>
+                    <p class="sheet-note">Have something in mind? Send it across.</p>
+                </div>
+                <div class="contact-full">
+                    <div class="contact-section paper">
+                        <div class="cs-item email">
+                            <div class="icon"><i class="fas fa-envelope"></i></div>
+                            <div class="text">
+                                <div class="placeHolder">E-mail</div>
+                                <div class="info">yugeshweb@gmail.com</div>
+                            </div>
+                        </div>
+
+                        <div class="cs-item address">
+                            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="text">
+                                <div class="placeHolder">Address</div>
+                                <div class="info">Bengaluru, India</div>
+                            </div>
+                        </div>
+                    </div>
+                    <section class="contact-form paper">
+                        <h2>Send a message</h2>
+                        <div class="border-line"></div>
+                        <div class="contact-submit-after">
+                            <div class="box">
+                                <i class="fa-solid fa-circle-check csa-icon" aria-hidden="true"></i>
+                                <div class="csa-text">Message sent successfully</div>
+                                <button type="button" class="csa-ok">OK</button>
+                            </div>
+                        </div>
+                        <form id="contact-form" class="form-section" name="contact" method="POST"
+                            data-netlify="true" netlify-honeypot="bot-field" novalidate>
+                            <input type="hidden" name="form-name" value="contact">
+                            <p class="hp-field">
+                                <label>Leave this field empty: <input name="bot-field" tabindex="-1"
+                                        autocomplete="off"></label>
+                            </p>
+                            <div class="form-group name-section">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" autocomplete="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" autocomplete="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <div class="error" role="alert">
+                                <i class="fa-solid fa-circle-xmark error-icon" aria-hidden="true"></i>Please fill out all the fields
+                            </div>
+                            <div class="email-error" role="alert">
+                                <i class="fa-solid fa-circle-xmark error-icon" aria-hidden="true"></i>Email address is not valid
+                            </div>
+                            <div class="send-error" role="alert">
+                                <i class="fa-solid fa-circle-xmark error-icon" aria-hidden="true"></i>Could not send right now — please email me directly
+                            </div>
+                            <button type="submit" id="contact-submit" class="contact-button">
+                                <div class="contact-load">
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                </div>
+                                <div class="submit-text">Submit</div>
+                            </button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="left">
+                &copy; 2026 • Yugeshweb • All Rights Reserved
+            </div>
+            <div class="right">
+
+                <div class="social"><a href="https://www.linkedin.com/in/yugeshweb" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a></div>
+                <div class="social"><a href="https://x.com/yugeshweb" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x"></i></a></div>
+                <div class="social"><a href="https://github.com/yugeshweb" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></div>
+                <div class="social"><a href="https://www.instagram.com/yugeshweb" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></div>
+                <div class="social"><a href="https://youtube.com/@yugeshweb" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></div>
+                <div class="social"><a href="https://dev.to/yugeshweb" target="_blank" rel="noopener noreferrer" aria-label="DEV Community"><i class="fa-brands fa-dev"></i></a></div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="nav-touch-close" id="nav-tc-js"></div>
+    <script src="/SRC/script/script.js"></script>
+
+</body>
+
+</html>

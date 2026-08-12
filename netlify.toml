@@ -1,0 +1,144 @@
+#  yugeshweb.com — Netlify configuration
+
+[build]
+  publish = "."
+
+# Serve /skills instead of /skills.html and 301 the .html form away.
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+# ----------------------------------------------------------
+#  Redirects
+#  Netlify's pretty_urls handles /page.html -> /page.
+#  These cover the canonical host and the retired URL scheme.
+# ----------------------------------------------------------
+
+[[redirects]]
+  from = "https://www.yugeshweb.com/*"
+  to = "https://yugeshweb.com/:splat"
+  status = 301
+  force = true
+
+# The site used to live under /SRC/pages/ — keep those links alive.
+# Netlify placeholders cannot capture part of a segment, so each
+# retired page is listed explicitly.
+[[redirects]]
+  from = "/SRC/pages/skills.html"
+  to = "/skills"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/SRC/pages/education.html"
+  to = "/education"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/SRC/pages/career.html"
+  to = "/career"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/SRC/pages/gallery.html"
+  to = "/gallery"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/SRC/pages/hobbies.html"
+  to = "/hobbies"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/SRC/pages/contact.html"
+  to = "/contact"
+  status = 301
+  force = true
+
+# Strip the .html extension so only the clean URL is ever canonical.
+# force = true is required, otherwise the existing file wins.
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/skills.html"
+  to = "/skills"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/education.html"
+  to = "/education"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/career.html"
+  to = "/career"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/gallery.html"
+  to = "/gallery"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/hobbies.html"
+  to = "/hobbies"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact"
+  status = 301
+  force = true
+
+# ----------------------------------------------------------
+#  Security headers (applied to every response)
+# ----------------------------------------------------------
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), usb=()"
+    Cross-Origin-Opener-Policy = "same-origin"
+    Cross-Origin-Resource-Policy = "same-origin"
+    # Inline <script> blocks are allowed by SHA-256 hash, not 'unsafe-inline'.
+    # Editing any inline script means recomputing its hash.
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' https://www.googletagmanager.com https://unpkg.com 'sha256-EfqEU6qeV+v5g3veBej8k/B756hdHYi6al2Lqd7MOxU=' 'sha256-/vWWR8TcD9zYlnABUrQFBASqE9/51p9Juc2J2X5um5g='; style-src 'self' https://cdnjs.cloudflare.com https://unpkg.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://unpkg.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com; manifest-src 'self'; upgrade-insecure-requests"
+
+# ----------------------------------------------------------
+#  Caching
+#  CSS/JS filenames are not content-hashed, so they must
+#  revalidate — otherwise an edit would not reach returning
+#  visitors. Netlify's CDN still serves them from edge cache
+#  and answers revalidation with a cheap 304.
+#  Images never change once published, so they cache hard.
+# ----------------------------------------------------------
+[[headers]]
+  for = "/SRC/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/Assets/*"
+
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
