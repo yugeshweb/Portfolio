@@ -149,6 +149,7 @@ h3 {
 
 /* every page body shares one measure */
 .skills-section,
+.projects-section,
 .education-section,
 .career-section,
 .hobbies-section,
@@ -573,7 +574,92 @@ body > .header.scrolled {
 }
 
 /* ==========================================================
-   10. EDUCATION
+   10. PROJECTS
+   ========================================================== */
+
+.projects {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap);
+}
+
+/* image left, text right — the image track is fixed so every card
+   in the stack lines its text up on the same edge */
+.project {
+	display: grid;
+	grid-template-columns: 300px minmax(0, 1fr);
+	align-items: stretch;
+}
+
+.project-image {
+	position: relative;
+	background-color: var(--paper-shade);
+	border-right: 1px solid var(--rule);
+	overflow: hidden;
+}
+
+.project-image img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* placeholder until a real screenshot goes in */
+.project-image-empty {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 200px;
+	height: 100%;
+	font-size: 1.6rem;
+	color: var(--ink-faint);
+}
+
+.project-body {
+	padding: 26px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.project-title {
+	font-family: var(--font-serif);
+	font-size: 1.28rem;
+	letter-spacing: -0.012em;
+	color: var(--ink);
+}
+
+.project-line {
+	margin-top: 9px;
+	font-size: 0.9rem;
+	line-height: 1.62;
+	color: var(--ink-faint);
+}
+
+.project-button {
+	margin-top: 20px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--font-mono);
+	font-size: 0.8rem;
+	letter-spacing: 0.02em;
+	padding: 12px 22px;
+	border: 1px solid var(--accent);
+	background-color: var(--accent);
+	color: var(--paper-raised);
+	transition: background-color .2s ease, border-color .2s ease;
+}
+
+.project-button:hover {
+	background-color: #9c352d;
+	border-color: #9c352d;
+}
+
+/* ==========================================================
+   11. EDUCATION
    ========================================================== */
 
 .education-section {
@@ -643,7 +729,7 @@ body > .header.scrolled {
 }
 
 /* ==========================================================
-   11. CAREER
+   12. CAREER
    ========================================================== */
 
 .career-section > * + * {
@@ -727,7 +813,7 @@ body > .header.scrolled {
 }
 
 /* ==========================================================
-   12. GALLERY
+   13. GALLERY
    ========================================================== */
 
 .gallery-grid {
@@ -770,7 +856,7 @@ body > .header.scrolled {
 }
 
 /* ==========================================================
-   13. HOBBIES
+   14. HOBBIES
    ========================================================== */
 
 /* four cards: 4-up on wide screens, 2×2 below — never an orphan row */
@@ -830,7 +916,7 @@ body > .header.scrolled {
 }
 
 /* ==========================================================
-   14. CONTACT
+   15. CONTACT
    ========================================================== */
 
 .contact-full {
@@ -1064,7 +1150,7 @@ body > .header.scrolled {
 }
 
 /* ==========================================================
-   15. LIGHTBOX
+   16. LIGHTBOX
    ========================================================== */
 
 .lightbox {
@@ -1144,7 +1230,7 @@ body > .header.scrolled {
 }
 
 /* ==========================================================
-   16. FOOTER
+   17. FOOTER
    ========================================================== */
 
 .footer {
@@ -1196,7 +1282,7 @@ body > .header.scrolled {
 }
 
 /* ==========================================================
-   17. RESPONSIVE
+   18. RESPONSIVE
    ========================================================== */
 
 @media (max-width: 1000px) {
@@ -1361,6 +1447,10 @@ body > .header.scrolled {
 	.hobbies-section .section {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
+
+	.project {
+		grid-template-columns: 240px minmax(0, 1fr);
+	}
 }
 
 @media (max-width: 720px) {
@@ -1372,6 +1462,21 @@ body > .header.scrolled {
 
 	.skills {
 		grid-template-columns: minmax(0, 1fr);
+	}
+
+	/* the project card stacks: image on top, text below */
+	.project {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.project-image {
+		border-right: 0;
+		border-bottom: 1px solid var(--rule);
+		aspect-ratio: 16 / 9;
+	}
+
+	.project-image-empty {
+		min-height: 0;
 	}
 
 	.sheet-head {
@@ -1432,6 +1537,7 @@ body > .header.scrolled {
 	}
 
 	.domain,
+	.project-body,
 	.contact-section,
 	.contact-form {
 		padding: 20px;
@@ -1451,7 +1557,7 @@ body > .header.scrolled {
 }
 
 /* ==========================================================
-   18. MOTION PREFERENCES
+   19. MOTION PREFERENCES
    ========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1469,7 +1575,7 @@ body > .header.scrolled {
 }
 
 /* ==========================================================
-   19. 404
+   20. 404
    ========================================================== */
 
 .notfound-shell {

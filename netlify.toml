@@ -74,6 +74,12 @@
   force = true
 
 [[redirects]]
+  from = "/projects.html"
+  to = "/projects"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/education.html"
   to = "/education"
   status = 301
