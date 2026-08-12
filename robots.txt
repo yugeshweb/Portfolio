@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /forms
+Disallow: /forms.html
 
 Sitemap: https://yugeshweb.com/sitemap.xml

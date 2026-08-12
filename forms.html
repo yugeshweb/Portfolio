@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Form registration</title>
+</head>
+
+<body>
+    <!--
+      This page exists only so Netlify's build-time crawler can register the
+      contact form. It is never linked and is excluded from search engines.
+      The visible form on /contact submits to this same form name via fetch.
+      Do not delete: without it Netlify returns 404 on form submissions.
+    -->
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <input type="hidden" name="form-name" value="contact">
+        <input name="bot-field">
+        <input type="text" name="name">
+        <input type="email" name="email">
+        <textarea name="message"></textarea>
+    </form>
+</body>
+
+</html>

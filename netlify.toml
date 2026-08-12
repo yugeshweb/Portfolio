@@ -3,12 +3,10 @@
 [build]
   publish = "."
 
-# Serve /skills instead of /skills.html and 301 the .html form away.
+# Netlify serves /skills for skills.html automatically; the explicit
+# redirects below strip the .html so only the clean URL is canonical.
 [build.processing]
   skip_processing = false
-
-[build.processing.html]
-  pretty_urls = true
 
 # ----------------------------------------------------------
 #  Redirects
