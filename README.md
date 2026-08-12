@@ -1,6 +1,6 @@
 # Portfolio — yugeshweb.com
 
-Personal portfolio of Yugesh K — web developer, UI/UX designer and cybersecurity enthusiast.
+Personal portfolio of Yugesh K :- web developer, UI/UX designer and cybersecurity enthusiast.
 
 **Live:** [yugeshweb.com](https://yugeshweb.com)
 
@@ -37,29 +37,5 @@ a single red accent.
 ├── robots.txt
 └── sitemap.xml
 ```
-
-## Features
-
-- Clean URLs (`/skills` rather than `/skills.html`)
-- Responsive from 320px upward
-- JSON-LD structured data (`Person`, `WebSite`, `ProfilePage`)
-- Open Graph and Twitter Card metadata
-- Content Security Policy with hash-allowlisted inline scripts
-- Subresource Integrity on all third-party assets
-- Contact form via Netlify Forms with a honeypot
-- Respects `prefers-reduced-motion`
-
-## Local development
-
-Clean URLs need a server that resolves extensionless paths:
-
-```bash
-npx netlify-cli dev
-```
-
-Opening the files directly, or using a plain static server, will 404 on
-`/skills` because that routing comes from `netlify.toml`.
-
-## Licence
 
 Code is free to reference. Content, images and branding are © Yugesh K.
