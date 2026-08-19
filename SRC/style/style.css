@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Sora:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap');
 
 /* ==========================================================
    1. TOKENS
@@ -23,16 +23,15 @@
 	--accent: #b8433a;
 	--accent-tint: rgba(184, 67, 58, 0.08);
 
-	/* type — two families, three jobs
-	   display : Fraunces, for the name line and every page/card heading
-	   ui      : Sora, for nav, buttons, tags, labels, footer
-	   body    : Sora, for running prose */
-	--font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
-	--font-ui: 'Sora', system-ui, -apple-system, 'Segoe UI', sans-serif;
+	/* type */
+	/* Newsreader carries the voice; DM Sans does the interface work.
+	   No monospace anywhere — mono in nav/footer is the stock
+	   dev-portfolio look this site is deliberately avoiding. */
+	--font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+	--font-sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-	/* Fraunces reads best with a touch of optical sizing and soft "wonk" */
-	--display-settings: 'SOFT' 30, 'WONK' 1;
-
+	/* every former mono slot now resolves to the sans */
+	--font-mono: var(--font-sans);
 
 	/* elevation — soft, no offset, nothing that reads as a "pop" */
 	--shadow: 0 1px 2px rgba(27, 30, 36, 0.04), 0 4px 14px rgba(27, 30, 36, 0.045);
@@ -63,9 +62,9 @@ html {
 
 body {
 	min-height: 100vh;
-	font-family: var(--font-ui);
-	font-size: 16.5px;
-	line-height: 1.68;
+	font-family: var(--font-sans);
+	font-size: 16px;
+	line-height: 1.6;
 	color: var(--ink);
 	background-color: var(--paper);
 	background-image:
@@ -117,7 +116,7 @@ textarea {
 h1,
 h2,
 h3 {
-	font-weight: 500;
+	font-weight: 400;
 	line-height: 1.2;
 }
 
@@ -211,10 +210,9 @@ body > .header.scrolled {
 }
 
 .logo span:last-child {
-	font-family: var(--font-display);
-	font-variation-settings: var(--display-settings);
-	font-size: 1.4rem;
-	letter-spacing: -0.012em;
+	font-family: var(--font-serif);
+	font-size: 1.45rem;
+	letter-spacing: -0.01em;
 	color: var(--ink);
 }
 
@@ -226,9 +224,9 @@ body > .header.scrolled {
 
 .navbar a {
 	position: relative;
-	font-family: var(--font-ui);
-	font-size: 0.92rem;
-	letter-spacing: 0.01em;
+	font-family: var(--font-mono);
+	font-size: 0.925rem;
+	letter-spacing: 0.02em;
 	color: var(--ink-soft);
 	padding-block: 6px;
 	transition: color .2s ease;
@@ -269,8 +267,8 @@ body > .header.scrolled {
 	display: inline-flex;
 	align-items: center;
 	gap: 7px;
-	font-family: var(--font-ui);
-	font-size: 0.88rem;
+	font-family: var(--font-mono);
+	font-size: 0.875rem;
 	color: var(--ink);
 	padding: 8px 14px;
 	border: 1px solid var(--rule-strong);
@@ -295,7 +293,7 @@ body > .header.scrolled {
 }
 
 .cm-icon {
-	font-size: 0.85rem;
+	font-size: 0.82rem;
 }
 
 #menu-icon {
@@ -357,18 +355,15 @@ body > .header.scrolled {
 }
 
 .sheet-title {
-	font-family: var(--font-display);
-	font-variation-settings: 'SOFT' 40, 'WONK' 1;
+	font-family: var(--font-serif);
 	font-size: clamp(2rem, 4.2vw, 2.65rem);
-	font-weight: 500;
-	letter-spacing: -0.016em;
+	letter-spacing: -0.022em;
 	color: var(--ink);
 }
 
 .sheet-note {
-	margin-top: 9px;
-	font-size: 0.9rem;
-	line-height: 1.7;
+	margin-top: 7px;
+	font-size: 0.95rem;
 	color: var(--ink-faint);
 	max-width: 56ch;
 }
@@ -432,14 +427,12 @@ body > .header.scrolled {
 }
 
 .about .text {
-	font-family: var(--font-display);
-	/* a little more optical weight than the body serif carries */
-	font-variation-settings: 'SOFT' 40, 'WONK' 1;
+	font-family: var(--font-serif);
 	font-size: clamp(1.8rem, 3.9vw, 2.5rem);
 	line-height: 1.18;
-	letter-spacing: -0.014em;
+	letter-spacing: -0.022em;
 	color: var(--ink);
-	font-weight: 500;
+	font-weight: 400;
 }
 
 /* the lead and the role each hold their own line, so the heading is
@@ -468,12 +461,11 @@ body > .header.scrolled {
 }
 
 .about p {
-	margin-top: 20px;
-	font-size: 0.96rem;
-	line-height: 1.78;
-	letter-spacing: 0.001em;
+	margin-top: 18px;
+	font-size: 1rem;
+	line-height: 1.72;
 	color: var(--ink-soft);
-	max-width: 52ch;
+	max-width: 56ch;
 }
 
 .about .buttons {
@@ -492,7 +484,7 @@ body > .header.scrolled {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	font-family: var(--font-ui);
+	font-family: var(--font-mono);
 	font-size: 0.9rem;
 	letter-spacing: 0.02em;
 	padding: 12px 22px;
@@ -552,15 +544,14 @@ body > .header.scrolled {
 }
 
 .domain-title {
-	font-family: var(--font-display);
-	font-variation-settings: var(--display-settings);
+	font-family: var(--font-serif);
 	font-size: 1.28rem;
 	letter-spacing: -0.012em;
 	color: var(--ink);
 }
 
 .domain-line {
-	font-size: 0.94rem;
+	font-size: 0.9rem;
 	line-height: 1.62;
 	color: var(--ink-faint);
 	margin-bottom: 18px;
@@ -573,8 +564,8 @@ body > .header.scrolled {
 }
 
 .tag {
-	font-family: var(--font-ui);
-	font-size: 0.8rem;
+	font-family: var(--font-mono);
+	font-size: 0.82rem;
 	color: var(--ink-soft);
 	background-color: var(--paper-shade);
 	border: 1px solid var(--rule);
@@ -639,8 +630,7 @@ body > .header.scrolled {
 }
 
 .project-title {
-	font-family: var(--font-display);
-	font-variation-settings: var(--display-settings);
+	font-family: var(--font-serif);
 	font-size: 1.28rem;
 	letter-spacing: -0.012em;
 	color: var(--ink);
@@ -648,7 +638,7 @@ body > .header.scrolled {
 
 .project-line {
 	margin-top: 9px;
-	font-size: 0.94rem;
+	font-size: 0.9rem;
 	line-height: 1.62;
 	color: var(--ink-faint);
 }
@@ -658,7 +648,7 @@ body > .header.scrolled {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	font-family: var(--font-ui);
+	font-family: var(--font-mono);
 	font-size: 0.9rem;
 	letter-spacing: 0.02em;
 	padding: 12px 22px;
@@ -723,17 +713,15 @@ body > .header.scrolled {
 	padding: 0;
 	background: none;
 	border: none;
-	font-family: var(--font-display);
-	font-variation-settings: var(--display-settings);
-	letter-spacing: -0.012em;
+	font-family: var(--font-serif);
 	font-size: 1.26rem;
 	line-height: 1.25;
 	color: var(--ink);
 }
 
 .study .texts .name {
-	font-family: var(--font-ui);
-	font-size: 0.84rem;
+	font-family: var(--font-mono);
+	font-size: 0.85rem;
 	color: var(--accent);
 	margin-top: 5px;
 }
@@ -754,9 +742,10 @@ body > .header.scrolled {
 }
 
 .career-header .text {
-	font-family: var(--font-ui);
-	font-size: 0.86rem;
-	letter-spacing: 0.02em;
+	font-family: var(--font-sans);
+	font-size: 0.82rem;
+	font-weight: 500;
+	letter-spacing: 0.01em;
 	color: var(--ink-faint);
 }
 
@@ -768,10 +757,9 @@ body > .header.scrolled {
 }
 
 .professional-summary .texts {
-	font-family: var(--font-display);
-	font-variation-settings: var(--display-settings);
-	font-size: 1.06rem;
-	line-height: 1.75;
+	font-family: var(--font-serif);
+	font-size: 1.1rem;
+	line-height: 1.72;
 	color: var(--ink-soft);
 	max-width: 68ch;
 	margin-top: 18px;
@@ -790,9 +778,7 @@ body > .header.scrolled {
 }
 
 .goals-header .text {
-	font-family: var(--font-display);
-	font-variation-settings: var(--display-settings);
-	letter-spacing: -0.012em;
+	font-family: var(--font-serif);
 	font-size: 1.18rem;
 	color: var(--ink);
 }
@@ -915,9 +901,7 @@ body > .header.scrolled {
 }
 
 .hobbies .header .header-text {
-	font-family: var(--font-display);
-	font-variation-settings: var(--display-settings);
-	letter-spacing: -0.012em;
+	font-family: var(--font-serif);
 	font-size: 1.14rem;
 	color: var(--ink);
 }
@@ -931,7 +915,7 @@ body > .header.scrolled {
 
 .hobbies .text {
 	margin-top: 12px;
-	font-size: 0.94rem;
+	font-size: 0.875rem;
 	line-height: 1.65;
 	color: var(--ink-soft);
 }
@@ -973,14 +957,14 @@ body > .header.scrolled {
 }
 
 .cs-item .placeHolder {
-	font-family: var(--font-ui);
-	font-size: 0.82rem;
-	letter-spacing: 0.02em;
+	font-family: var(--font-sans);
+	font-size: 0.8rem;
+	letter-spacing: 0.005em;
 	color: var(--ink-faint);
 }
 
 .cs-item .info {
-	font-size: 0.98rem;
+	font-size: 0.94rem;
 	color: var(--ink);
 	overflow-wrap: anywhere;
 }
@@ -990,9 +974,7 @@ body > .header.scrolled {
 }
 
 .contact-form h1 {
-	font-family: var(--font-display);
-	font-variation-settings: var(--display-settings);
-	letter-spacing: -0.012em;
+	font-family: var(--font-serif);
 	font-size: 1.45rem;
 	color: var(--ink);
 }
@@ -1011,9 +993,10 @@ body > .header.scrolled {
 
 .contact-main label {
 	display: block;
-	font-family: var(--font-ui);
-	font-size: 0.85rem;
-	letter-spacing: 0.02em;
+	font-family: var(--font-sans);
+	font-size: 0.82rem;
+	font-weight: 500;
+	letter-spacing: 0.005em;
 	color: var(--ink-faint);
 	margin-bottom: 7px;
 }
@@ -1022,8 +1005,8 @@ body > .header.scrolled {
 .contact-main input[type="email"],
 .contact-main textarea {
 	width: 100%;
-	font-family: var(--font-ui);
-	font-size: 0.96rem;
+	font-family: var(--font-sans);
+	font-size: 0.94rem;
 	padding: 11px 13px;
 	border: 1px solid var(--rule);
 	background-color: var(--paper);
@@ -1100,7 +1083,7 @@ body > .header.scrolled {
 	display: none;
 	align-items: center;
 	gap: 8px;
-	font-family: var(--font-ui);
+	font-family: var(--font-mono);
 	font-size: 0.86rem;
 	color: var(--accent);
 	background-color: var(--accent-tint);
@@ -1156,7 +1139,7 @@ body > .header.scrolled {
 }
 
 .csa-ok {
-	font-family: var(--font-ui);
+	font-family: var(--font-mono);
 	font-size: 0.88rem;
 	color: var(--paper-raised);
 	background-color: var(--accent);
@@ -1264,7 +1247,7 @@ body > .header.scrolled {
 }
 
 .footer .left {
-	font-family: var(--font-ui);
+	font-family: var(--font-mono);
 	font-size: 0.85rem;
 	color: var(--ink-faint);
 }
@@ -1554,7 +1537,7 @@ body > .header.scrolled {
 
 	.header .main a.user {
 		padding: 7px 11px;
-		font-size: 0.84rem;
+		font-size: 0.7rem;
 	}
 
 	.domain,
@@ -1612,7 +1595,7 @@ body > .header.scrolled {
 .notfound-link {
 	display: inline-flex;
 	align-items: center;
-	font-family: var(--font-ui);
+	font-family: var(--font-mono);
 	font-size: 0.9rem;
 	letter-spacing: 0.02em;
 	padding: 12px 22px;
