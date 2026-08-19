@@ -608,11 +608,22 @@ body > .header.scrolled {
 	font-style: italic;
 }
 
-/* typed.js appends its cursor here — it must not start a new line */
+/* typed.js appends its cursor here — it must not start a new line.
+   It is also taken out of the layout flow: sitting inline, it was
+   re-positioned on every typed character, which Chrome counts as a
+   layout shift each time — ~100 of them per cycle, accumulating for
+   as long as the page stays open. Absolute keeps it visible without
+   letting it move anything. */
 .about .text-role .typed-cursor {
+	position: absolute;
 	color: var(--accent);
 	font-style: normal;
 	font-weight: 300;
+}
+
+/* the cursor positions against this line, not the page */
+.about .text-role {
+	position: relative;
 }
 
 .about p {
