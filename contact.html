@@ -118,6 +118,19 @@
                             <div class="send-error" role="alert">
                                 <svg class="error-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>Could not send right now — please email me directly
                             </div>
+                            <!-- Cloudflare Turnstile. The site key is public;
+                                 the secret lives in the TURNSTILE_SECRET_KEY
+                                 Netlify env var and is verified server-side
+                                 by netlify/functions/contact.js. -->
+                            <div class="turnstile-holder">
+                                <div class="cf-turnstile"
+                                    data-sitekey="0x4AAAAAAEVyNXDubP2aueD8"
+                                    data-theme="light"
+                                    data-action="contact"></div>
+                            </div>
+                            <div class="captcha-error" role="alert">
+                                <svg class="error-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>Please complete the verification
+                            </div>
                             <button type="submit" id="contact-submit" class="contact-button">
                                 <div class="contact-load">
                                     <div class="line"></div>
@@ -149,6 +162,7 @@
 
     <div class="nav-touch-close" id="nav-tc-js"></div>
     <script src="/SRC/script/script.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 </body>
 

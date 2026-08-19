@@ -1232,9 +1232,21 @@ body > .header.scrolled {
 	display: none;
 }
 
+/* the widget renders in its own iframe; give it room without letting
+   it push the submit button around on narrow screens */
+.turnstile-holder {
+	margin-top: 18px;
+	min-height: 65px;
+}
+
+.turnstile-holder iframe {
+	max-width: 100%;
+}
+
 .error,
 .email-error,
-.send-error {
+.send-error,
+.captcha-error {
 	display: none;
 	align-items: center;
 	gap: 8px;

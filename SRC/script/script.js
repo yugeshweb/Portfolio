@@ -64,6 +64,7 @@ if (contactForm) {
 	const fieldError = document.querySelector('.error');
 	const emailError = document.querySelector('.email-error');
 	const sendError = document.querySelector('.send-error');
+	const captchaError = document.querySelector('.captcha-error');
 	const submitSpinner = document.querySelector('.contact-load');
 	const submitLabel = document.querySelector('.submit-text');
 
@@ -96,6 +97,7 @@ if (contactForm) {
 		fieldError.classList.remove('error-show');
 		emailError.classList.remove('error-show');
 		sendError.classList.remove('error-show');
+		if (captchaError) captchaError.classList.remove('error-show');
 
 		if (!hasName || !hasMessage || emailValue === '') {
 			fieldError.classList.add('error-show');
@@ -107,10 +109,20 @@ if (contactForm) {
 			return;
 		}
 
+		// Turnstile writes its token into a hidden input inside the widget.
+		// Missing means the challenge has not finished (or was blocked).
+		const captchaField = contactForm.querySelector('[name="cf-turnstile-response"]');
+		const captchaToken = captchaField ? captchaField.value : '';
+
+		if (!captchaToken) {
+			if (captchaError) captchaError.classList.add('error-show');
+			return;
+		}
+
 		setBusy(true);
 
 		try {
-			const response = await fetch('/', {
+			const response = await fetch('/.netlify/functions/contact', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				body: new URLSearchParams(new FormData(contactForm)).toString()
@@ -119,10 +131,14 @@ if (contactForm) {
 			if (!response.ok) throw new Error('Submission failed: ' + response.status);
 
 			contactForm.reset();
+			// a used token cannot be replayed — clear it for the next message
+			if (window.turnstile) window.turnstile.reset();
 			showConfirmation();
 		} catch (error) {
 			setBusy(false);
 			sendError.classList.add('error-show');
+			// the token is single-use, so a retry needs a fresh one
+			if (window.turnstile) window.turnstile.reset();
 		}
 	}
 
